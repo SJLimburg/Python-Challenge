@@ -14,6 +14,14 @@ with open(budget_data, 'r') as csv_file:
 
     print(f"Header: {csv_header}")
 
+    Months = 0
+    TotalProfit = 0
+    AvgMonChange = 0
+
+    for rows in csv_monthly:
+        TotalProfit = TotalProfit  + int(rows[1])
+       
+
 
 #  Inside loop have a Variable Months to increment every loop to derive total months under report.
 # Also loop through
@@ -34,8 +42,18 @@ with open(budget_data, 'r') as csv_file:
 
 #Total months
 # total net profit/loss
+print(TotalProfit)
 # average monthyly change in profit
 # greatest monthly increase amount and month
 # greatest monthly decrease amount and month
 
+# # Import necessary dependencies
+# import csv
+# # Create the path for the filename
+# data_output = os.path.join("Analysis", "PyBank.txt")
+# # Write data to a .csv file
+# with open(data_output, "w", newline="") as csvfile:
+#  writer = csv.writer(csvfile)
+#  # To save specific data input as a row in the csv
+#  writer.writerow(["row1", "row2"])
 
