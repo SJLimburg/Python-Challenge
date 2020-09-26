@@ -18,7 +18,7 @@ with open(budget_data, 'r') as csv_file:
     ProfitChangeList = []
     PrevRev = 0
     GreatestGain = ["",0] 
-    GreatestLoss = ["", -100]
+    GreatestLoss = ["",0]
     
 
     for rows in csv_monthly:
@@ -42,12 +42,15 @@ with open(budget_data, 'r') as csv_file:
             GreatestLoss[1]=RevChange
 
 # print(*ProfitChangeList, sep =", ")
-# avgMonChg = sum(ProfitChangeList)/len(ProfitChangeList)
-# print(avgMonChg)
+sumMonChg =sum(ProfitChangeList)
+print(f'sum of monthly change {sumMonChg}')
+avgMonChg = sum(ProfitChangeList)/len(ProfitChangeList)
+
 
 # checking output for eventual writing into output file
 print("Financial Analysis \n--------------------------------\n")
 print(f"Total Months:  {Months}\n" f"Total Revenue:   ${TotalProfit}\n")
+print(f'Average Change: {avgMonChg}')
 print(f'Greatest Increase in Profits: {GreatestGain[0]} (${GreatestGain[1]})')
 print(f'Greatest Decrease in Profits: {GreatestLoss[0]} (${GreatestLoss[1]})')
 
