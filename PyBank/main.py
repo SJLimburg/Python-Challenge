@@ -15,27 +15,26 @@ with open(budget_data, 'r') as csv_file:
     print(f"Header: {csv_header}")
 
 
-    
+#  Inside loop have a Variable Months to increment every loop to derive total months under report.
+# Also loop through
+#  MonthlyChange =  (curMonPL - prevMonPl ) to get difference ;
+#  TotalProfit = TotalProfit  + Col2
+#  TotalMonthyChange =  TotalMonthyChange + MonthlyChange:
+# Average Monthly Change = TotalMonthyChange/Months
+# conditional loop:
+# Set GreatestGain to  first MonthlyChange, Store amount and month - go to next and compare
+# set GreatestLoss to the first MonthlyChange   Store amount and month - go to next and compare  - Beware of subtraction differences.   
 
 # The total number of months included in the dataset - file name budget_data.csv
-
-
 # The net total amount of "Profit/Losses" over the entire period - Get the sum of all months p/l
-
-
 # The average of the changes in "Profit/Losses" over the entire period - get the mean of p/l
-
-
 # The greatest increase in profits (date and amount) over the entire period - MOM calculation Mon2-mon1 etc = monthly change
-
-
 # The greatest decrease in losses (date and amount) over the entire period - MOM calculation - greatest MOM negative
-
 # In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 
-#Totak months
+#Total months
 # total net profit/loss
-# average monthyly profit
+# average monthyly change in profit
 # greatest monthly increase amount and month
 # greatest monthly decrease amount and month
 
