@@ -3,7 +3,7 @@ import os
 import csv
 
 # set up paths
-poll_data = os.path.join("Resources","election_data_test.csv")
+poll_data = os.path.join("Resources","election_data.csv")
 results_file = os.path.join("Analysis","Election_Results.txt")
 
 # read csv file
@@ -44,7 +44,7 @@ with open(results_file, 'w') as txt_file:
     winner = candidate_list[0]
     for items in candidate_list:
         name = candidate_list[write_index]
-        percent = votes[write_index]/overall_vote_count
+        percent = round((votes[write_index]/overall_vote_count)*100,2)
         votes_for_candidate = votes[write_index]
         txt_file.write(f"{name}:  {percent}%  ({votes_for_candidate})\n")
         
@@ -54,7 +54,7 @@ with open(results_file, 'w') as txt_file:
             winner = candidate_list[winner_index]
        
         write_index = write_index + 1    
-    txt_file.write(f"---------------------------------\n Winner: {winner}\n---------------------------------\n")
+    txt_file.write(f"---------------------------------\nWinner: {winner}\n---------------------------------\n")
 
 
            
