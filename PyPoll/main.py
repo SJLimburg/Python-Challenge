@@ -34,27 +34,33 @@ with open(poll_data, 'r') as vote_file:
             candidate_list.append(candidate_name)
             votes.append(1)  
             
-candidate_count = len([candidate_list])
 
+#Begin populating output file
 with open(results_file, 'w') as txt_file:
-    txt_file.write(f"Election Results\n ---------------------------------\n")
-    txt_file.write(f"Total Votes:   {overall_vote_count}\n---------------------------------\n")
+
+    #Output banner and Total vote data to output file
+    txt_file.write(f"Election Results\n ------------------------\n")
+    txt_file.write(f"Total Votes:   {overall_vote_count}\n-------------------------\n")
+
+    # Set up variables for loop to print each candidate data
     write_index = 0
     winner_index = 0
     winner = candidate_list[0]
+
+    # Calculate results for each candidate
     for items in candidate_list:
         name = candidate_list[write_index]
         percent = round((votes[write_index]/overall_vote_count)*100,2)
         votes_for_candidate = votes[write_index]
         txt_file.write(f"{name}:  {percent}%  ({votes_for_candidate})\n")
         
-        
+        #Compare results to determine the winner
         if votes[write_index] > votes[winner_index]:
             winner_index = write_index
             winner = candidate_list[winner_index]
        
         write_index = write_index + 1    
-    txt_file.write(f"---------------------------------\nWinner: {winner}\n---------------------------------\n")
+    txt_file.write(f"-------------------------\nWinner: {winner}\n-------------------------\n")
 
 
            
