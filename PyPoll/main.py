@@ -33,11 +33,12 @@ with open(poll_data, 'r') as vote_file:
         else:
             candidate_list.append(candidate_name)
             votes.append(1)
+            temp = len([votes])
+
            
            
            
-        print(f" votes = {votes}")
-        print(f"candidates:   {candidate_list}")
+
 
 
 
