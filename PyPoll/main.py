@@ -26,7 +26,7 @@ with open(poll_data, 'r') as vote_file:
         #Who received the vote for this row
         candidate_name = row[2]
     
-        #Increent voet for candidate in the list or add a new candidate name to candidate list + 1 vote
+        #Increment voet for candidate in the list or add a new candidate name to candidate list + 1 vote
         if candidate_name in candidate_list:
             candidate_index = candidate_list.index(candidate_name)
             votes[candidate_index] = votes[candidate_index] + 1
@@ -38,21 +38,28 @@ with open(poll_data, 'r') as vote_file:
 #Begin populating output file
 with open(results_file, 'w') as txt_file:
 
-    #Output banner and Total vote data to output file
-    txt_file.write(f"Election Results\n ------------------------\n")
+    #Output banner and Total Votes data to output file
+    txt_file.write(f"Election Results\n------------------------\n")
     txt_file.write(f"Total Votes:   {overall_vote_count}\n-------------------------\n")
+
+    # Print the same to the terminal screen
+    print(f"Election Results\n ------------------------")
+    print(f"Total Votes:   {overall_vote_count}\n-------------------------")
 
     # Set up variables for loop to print each candidate data
     write_index = 0
     winner_index = 0
     winner = candidate_list[0]
 
-    # Calculate results for each candidate
+    # Calculate results for each candidate - Note to grader: I limited the decimal places for the % for clarity in print
     for items in candidate_list:
         name = candidate_list[write_index]
         percent = round((votes[write_index]/overall_vote_count)*100,2)
         votes_for_candidate = votes[write_index]
         txt_file.write(f"{name}:  {percent}%  ({votes_for_candidate})\n")
+
+        #Also print to termin al screen
+        print(f"{name}:  {percent}%  ({votes_for_candidate})")
         
         #Compare results to determine the winner
         if votes[write_index] > votes[winner_index]:
@@ -62,17 +69,7 @@ with open(results_file, 'w') as txt_file:
         write_index = write_index + 1    
     txt_file.write(f"-------------------------\nWinner: {winner}\n-------------------------\n")
 
+    #Also print to terminal screen
+    print(f"-------------------------\nWinner: {winner}\n-------------------------\n")
 
-           
-           
-           
-
-
-
-
-# The total number of votes cast
-# A complete list of candidates who received votes
-# The percentage of votes each candidate won
-# The total number of votes each candidate won
-# The winner of the election based on popular vote.
 
