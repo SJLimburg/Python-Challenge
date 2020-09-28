@@ -38,30 +38,30 @@ with open(budget_data, 'r') as csv_file:
         if Months > 1:
             ProfitChangeList.append(RevChange)
         
-        #Compare the current month revenue to the previous GreatestGain & save if greater
+        #Compare the current month revenue to the previous GreatestGain & save the month and $change if greater
         if (RevChange > GreatestGain[1]):
             GreatestGain[0]=rows[0]
             GreatestGain[1]=RevChange
 
-        #Compare the current month revenue to the previous GreatestLoss & save if worse
+        #Compare the current month revenue to the previous GreatestLoss & save ithe month and $change if lower
         if (RevChange < GreatestLoss[1]):
             GreatestLoss[0]=rows[0]
             GreatestLoss[1]=RevChange
 
-# print(*ProfitChangeList, sep =", ")
+# Calculate total of all monthly changes in proit/loss and compute the average change as well
 sumMonChg =sum(ProfitChangeList)
 print(f'sum of monthly change {sumMonChg}')
 avgMonChg = round(sum(ProfitChangeList)/len(ProfitChangeList),2)
 
 
-# Print output for to terminal
+# Print output to terminal
 print("Financial Analysis \n--------------------------------")
 print(f"Total Months:  {Months}\n" f"Total Revenue:   ${TotalProfit}")
 print(f'Average Change: ${avgMonChg}')
 print(f'Greatest Increase in Profits: {GreatestGain[0]} (${GreatestGain[1]})')
 print(f'Greatest Decrease in Profits: {GreatestLoss[0]} (${GreatestLoss[1]})')
 
-
+#Write data to the txt file
 with open(output_data, 'w') as txt_file:
     txt_file.write("Financial Analysis \n--------------------------------\n")
     txt_file.write(f"Total Months:    {Months}\n")
