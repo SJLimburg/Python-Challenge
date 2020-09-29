@@ -8,11 +8,11 @@ This challenge illusrates how to read a csv file that contains sequential monthl
 
 1. The total number of months included in the dataset 
 
-        The skill practiced is simply incrementing a v ariable in the for loop
+        The skill practiced is simply creating and incrementing a variable in a FOR LOOP. Each row in the file represents a month under report.
 
 2.  The net total amount of "Profit/Losses" over the entire period
 
-        The solution also used a for loop to add each month profit within the loop. A list index was required to indicate which column of data was added each iteration
+        The solution also used a FOR LOOP to add each month profit/loss to the running total. Within th eFOR LOOP a LIST INDEX was required to indicate which column of data was to be added each iteration
 
 3.  The average of the changes in "Profit/Losses" over the entire period
 
